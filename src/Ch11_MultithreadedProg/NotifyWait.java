@@ -18,8 +18,12 @@ class TickTock {
             return;
         }
 
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException exc) {
+            exc.printStackTrace();
+        }
         System.out.print("Tick ");
-
         state = "ticked";
 
         notify();
@@ -38,8 +42,12 @@ class TickTock {
             return;
         }
 
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException exc) {
+            exc.printStackTrace();
+        }
         System.out.println("Tock");
-
         state = "tocked";
 
         notify();
