@@ -5,7 +5,16 @@ package Ch12_Enum_Autobox_StaticImport_Annotations;
  */
 
 enum TrafficLightColor {
-    RED, GREEN, YELLOW
+    RED(12_000), GREEN(10_000), YELLOW(2_000);
+    private int delay;
+
+    TrafficLightColor(int d) {
+        delay = d;
+    }
+
+    int getDelay(){
+        return delay;
+    }
 }
 
 public class TrafficLight {
@@ -44,17 +53,7 @@ class TrafficLightSimulator implements Runnable {
     public void run() {
         while (!stop) {
             try {
-                switch (tlc) {
-                    case GREEN:
-                        Thread.sleep(10_000); //Зеленый на 10 секунд
-                        break;
-                    case YELLOW:
-                        Thread.sleep(2_000);
-                        break;
-                    case RED:
-                        Thread.sleep(12_000); //красный на 12 секунд
-                        break;
-                }
+                Thread.sleep(tlc.getDelay());
             } catch (InterruptedException exc) {
                 exc.printStackTrace();
             }
