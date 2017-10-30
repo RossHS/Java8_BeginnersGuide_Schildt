@@ -3,7 +3,6 @@ package Ch13_Generics;
 /**
  * Created by Ross on 23.10.2017.
  */
-//TODO написать обобщенные версии классов Circular-Queue и DynQueue 8.1
 public class GenQueue<T> implements IGenQ<T> {
     private T q[]; //для хранения массива
 
